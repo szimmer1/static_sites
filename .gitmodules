@@ -1,0 +1,3 @@
+[submodule "solar3d"]
+	path = solar3d
+	url = https://bitbucket.org/shahar_zimmerman/solar3d.git
