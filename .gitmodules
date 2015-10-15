@@ -1,3 +1,6 @@
 [submodule "solar3d"]
 	path = solar3d
 	url = https://github.com/szimmer1/solar3d.git
+[submodule "interplaylearning_homepage"]
+	path = interplaylearning_homepage
+	url = https://szimmer1:nn7xjsoioxj@github.com/szimmer1/interplaylearning_homepage.git
