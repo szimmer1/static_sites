@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,user-scalable=no" />
+    <title>Interplay Learning</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="http://dev.solar3dsim.com/css/style.css" />-->
+    <link rel="stylesheet" href="css/onboarding-style.css" />
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="app">
+    <!-- BEGIN MENU -->
+    <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="#"><img class="img-responsive navbar-brand-img" src="img/interplay_logo.png"  alt=" "></a>
+                </div>
+                <div id="my-navbar" class="navbar-collapse collapse">
+                    <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+                        <li ><a href="http://dev.solar3dsim.com">Login</a></li>
+                        <!-- <li class="solar"><a href="#">Solar Provider <i class="fa fa-remove"></i></a></li>
+                        <li><a href="#">Instructors</a></li> -->
+                        <li><a href="mailto:ccarter@interplay-learning.com?subject=Questions%20about%20your%20solution">Help</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+    </div>
+    <!-- END MENU -->
+
+    <div class="clearfix"></div>
+
+    <div class="container top-container" ng-controller="Main">
+
+        <div class="row">
+            <div class="col bottom-spaced col-md-12 col-xs-12">
+                <button class="btn btn-primary btn-il pull-right visible-xs visible-sm" ng-click="message = !message">
+                    <i ng-class="{'fa':true,'fa-minus':message,'fa-plus':!message}"></i>
+                </button>
+                <p class="message" ng-show="message">
+                    Building a strong workforce starts here.<br>
+                    Watch these videos and always reach out with questions.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col bottom-spaced col-md-7 col-xs-12">
+                <div class="embed-responsive embed-responsive-16by9 video-border">
+                    <youtube-video video-id="activeId"></youtube-video>
+                </div>
+            </div>
+            <div class="col bottom-spaced col-md-5 col-xs-12">
+                <accordion close-others="1">
+                    <accordion-group is-open="isopen" ng-repeat="step in steps">
+                        <accordion-heading><i class="fa" ng-class="{'fa-caret-right':!isopen, 'fa-caret-down':isopen}"></i>
+                            <span class="accordion-header">{{step.header}}</span></accordion-heading>
+                        <div ng-repeat="video in step.videos track by $index" class="row clickable nested-row" ng-click="setActive(video.videoid)">
+                            <div class="col col-md-3 col-xs-3 v-center">
+                                <img class="img-responsive" src="{{'img/' + video.imgname}}" />
+                            </div><!--
+                            --><div class="col col-md-9 col-xs-9 v-center">
+                                {{video.subtext}}
+                            </div>
+                            <hr ng-if="$index < step.videos.length - 1">
+                        </div>
+                    </accordion-group>
+                </accordion>
+                <a href="mailto:ccarter@interplay-learning.com?subject=Questions%20about%20your%20solution" class="btn btn-primary btn-il">
+                    <h4 class="panel-title">Need help? Contact us here</h4>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-md-12 col-xs-12 fill-img">
+                <img src="img/bg_logo.png" style="width: 100%"/>
+            </div>
+        </div>
+
+    </div>
+
+        <div class="row">
+            <div class="col-xs-12 white-footer">
+                <footer class="mainsolar-footer">
+                    <div class="pull-right hidden-xs">
+                    </div>
+                    <strong>Copyright &copy; 2015 <a href="https://www.upwork.com/o/profiles/users/_~01f510331212439b44/" target="_blank">Shahar Zimmerman</a>.</strong>  All rights reserved.
+                </footer>
+            </div>
+        </div>
+
+</body>
+</html>
